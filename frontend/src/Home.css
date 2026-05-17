@@ -1,0 +1,79 @@
+.body {
+  display: flex;
+  min-height: 100vh;
+}
+
+.body > .flex {
+  flex: 1;
+  min-width: 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.body p {
+  font-size: clamp(1.5rem, 2vw, 2.25rem);
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.input-wrapper {
+  position: relative;
+  width: min(100%, 760px);
+}
+
+.input-wrapper textarea {
+  width: 100%;
+  min-height: 140px;
+  padding: 1rem 4.5rem 1rem 1rem;
+  border: 1px solid #374151;
+  border-radius: 20px;
+  background-color: #1f2937;
+  color: #f9fafb;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+.input-wrapper textarea::placeholder {
+  color: #9ca3af;
+}
+
+.input-wrapper textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.2);
+  border: 1px solid #374151;
+  background-color: #1f2937;
+  color: #f9fafb;
+}
+
+.input-wrapper button {
+  position: absolute;
+  right: 0.9rem;
+  bottom: 0.9rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+@media (max-width: 100px) {
+  .body {
+    flex-direction: column;
+  }
+
+  .body > .flex {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .input-wrapper {
+    width: 100%;
+  }
+
+  .input-wrapper textarea {
+    min-height: 120px;
+    padding-right: 4rem;
+  }
+}

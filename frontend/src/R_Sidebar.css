@@ -1,0 +1,144 @@
+.rsidebar {
+  /* background-color: #1f2937; */
+  padding: 1.5rem 1.25rem 1.25rem;
+  box-sizing: border-box;
+  border-left: 1px solid #dbdbdb;
+  display: flex;
+  flex-direction: column;
+}
+
+.rsidebar-toggle {
+  color: #d1d5db;
+  padding: 10px;
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rsidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* gap: 0.75rem; */
+}
+
+.rsidebar-title {
+  color: #1f2937;
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
+}
+
+.rsidebar-list {
+  margin: 0;
+  padding-top: 1.5rem;
+  padding-left: 0;
+  list-style: none;
+}
+
+.rsidebar-item {
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #1f2937;
+  font-size: 0.875rem;
+}
+
+.rsidebar-item:hover {
+  background-color: #d1d5db;
+}
+
+.rsidebar-item-gap {
+  margin-top: 2.25rem;
+}
+
+.rsidebar-item-normal {
+  margin-top: 0.5rem;
+}
+
+.rsidebar-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+}
+
+.rsidebar-label {
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.rsidebar-closed .rsidebar-header {
+  justify-content: center;
+}
+
+.rsidebar-closed .rsidebar-toggle {
+  margin-left: 0;
+}
+
+.rsidebar-closed {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.rsidebar-closed .rsidebar-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rsidebar-closed .rsidebar-item {
+  width: 44px;
+  height: 44px;
+  grid-template-columns: 24px;
+  justify-content: center;
+  align-content: center;
+  gap: 0;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+}
+
+.rsidebar-closed .rsidebar-label,
+.rsidebar-closed .rsidebar-title {
+  display: none;
+}
+
+.rsidebar-closed
+.rsidebar-item-gap,
+.rsidebar-closed .rsidebar-item-normal {
+  margin-top: 8px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.rsidebar-box {
+  border-radius: 15px;
+  border: 2px solid #898989;
+  padding: 20px;
+  display: flex;
+  flex: 1;
+  align-items: flex-start;
+  margin: 0;
+}
+.rsidebar-box h4 {
+  font-size: small;
+  font-weight: 400;
+  margin: 0;
+}
+
+.rsidebar-panels {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 1.5rem;
+}
+
