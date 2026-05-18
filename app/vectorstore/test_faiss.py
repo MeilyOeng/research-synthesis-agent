@@ -11,7 +11,8 @@ from app.tools.ingestion import store_chunks_and_vectors
 
 
 def main():
-    store = store_chunks_and_vectors("/Users/meilyoeng/Documents/Projects/research-synthesis-agent/app/tools/dq.tex.pdf")
+    store = store_chunks_and_vectors("app/tools/dq.tex.pdf")
+    store.save()
     # store = FAISSStore()
 
     # store.add(
