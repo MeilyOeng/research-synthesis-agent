@@ -51,7 +51,7 @@ class Source(BaseModel):
     source_id: str = Field(default_factory=lambda: str(uuid.uuid4()))
     title: str
     url: Optional[str] = None
-    authors: Optional[str] = Field(default_factory=list)
+    authors: Optional[list[str]] = Field(default_factory=list)
     year: Optional[int] = None
     source: SourceType
     snippet: str = ""                 # Relevant excerpt from the source
@@ -160,7 +160,7 @@ class ReviewResponse(BaseModel):
     gaps: list[KnowledgeGap] = Field(default_factory=list)
 
     # Quality signals (shown in the UI evaluation panel)
-    overall_confidence: ConfidenceLevel = ConfidenceLevel.UNKNOWN
+    overall_confidence: ConfidenceLevel = ConfidenceLevel.UNDEFINED
     coverage_score: float = 0.0        # 0-1, how much of the query was covered
  
     # Planner output (shown in the steps panel)
@@ -188,11 +188,11 @@ class ReviewResponse(BaseModel):
         Build the public response from the internal ResearchContext.
         This is the only place that crosses the layer boundary.
         """
-        gaps = ctx.critic_feedback.gaps_identified if ctx.critic_feedback else []
+        gaps = ctx.critic_feedback.gap_identification if ctx.critic_feedback else []
         confidence = (
             ctx.critic_feedback.confidence_assessment
             if ctx.critic_feedback
-            else ConfidenceLevel.UNKNOWN
+            else ConfidenceLevel.UNDEFINED
         )
         return cls(
             review_id=ctx.request_id,
@@ -204,7 +204,7 @@ class ReviewResponse(BaseModel):
             overall_confidence=confidence,
             coverage_score=metrics.coverage_score,
             subtasks=ctx.subtasks,
-            agent_traces=ctx.agent_traces if include_traces else [],
+            agent_traces=ctx.agent_progress if include_traces else [],
             critic_feedback=ctx.critic_feedback if include_traces else None,
             metrics=metrics,
         )
