@@ -10,7 +10,7 @@
   align-items: center;
 }
 
-.body p {
+.body .title {
   font-size: clamp(1.5rem, 2vw, 2.25rem);
   font-weight: 600;
   color: #1f2937;

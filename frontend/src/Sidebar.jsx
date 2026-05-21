@@ -20,7 +20,7 @@ const Sidebar = () => {
         </button>
 
         <div className="sidebar-header">
-          <h1 className="sidebar-title">MyApp</h1>
+          <h1 className="sidebar-title"><i className="material-icons">precision_manufacturing</i></h1>
         </div>
 
         <ul className="sidebar-list">

@@ -2,7 +2,7 @@ import './Home.css';
 import Sidebar from './Sidebar';
 import R_Sidebar from './R_Sidebar';
 
-function Home() {
+function Chat() {
   return (
     <div className="body">
       <Sidebar />
@@ -22,4 +22,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Chat;
