@@ -1,0 +1,5 @@
+numpy
+PyMuPDF
+# Optional higher-quality embedding/vector backends:
+# sentence-transformers
+# faiss-cpu
