@@ -5,5 +5,5 @@ faiss-cpu
 fastapi
 pydantic
 pydantic-settings
-anthropic
 tavily-python
+google-generativeai

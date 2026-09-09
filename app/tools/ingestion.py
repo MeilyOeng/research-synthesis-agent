@@ -1,13 +1,9 @@
 import os
 import re
 from typing import Any
+import fitz
 
 from ..vectorstore.faiss_store import FAISSStore
-
-try:
-    import fitz
-except ModuleNotFoundError:
-    fitz = None
 
 """Ingestion flow:
 PDF or text file

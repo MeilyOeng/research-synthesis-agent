@@ -1,7 +1,7 @@
 from pydantic_settings import BaseSettings
 
 class Settings(BaseSettings):
-    anthropic_api_key: str
+    gemini_api_key: str
     tavily_api_key: str
 
     model_name: str = "claude-sonnet-4-20250514"

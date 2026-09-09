@@ -1,17 +1,9 @@
-import anthropic
+import google.generativeai as genai
 from app.core.config import settings
 
+genai.configure(api_key=settings.gemini_api_key)
+model = genai.GenerativeModel(settings.model_name)
 
-client = anthropic.AsyncAnthropic(api_key=settings.anthropic_api_key)
-
-async def complete(messages):
-
-    response = await client.messages.create(
-        model=settings.model_name,
-        max_tokens=settings.max_tokens,
-        messages=messages
-    )
-
-    text = response.content[0].text
-
-    return text
+async def complete(prompt: str) -> str:
+    response = await model.generate_content_async(prompt)
+    return response.text

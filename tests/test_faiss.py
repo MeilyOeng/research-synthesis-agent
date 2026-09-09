@@ -46,7 +46,6 @@ sys.modules["sentence_transformers"] = types.SimpleNamespace(
     SentenceTransformer=_TestSentenceTransformer
 )
 
-from app.embeddings.provider import get_embedding
 from app.vectorstore.faiss_store import FAISSStore
 from app.tools.ingestion import store_chunks_and_vectors
 
@@ -85,10 +84,7 @@ def _build_store() -> FAISSStore:
 
 def test_store_search_returns_results():
     store = _build_store()
-    results = store.search(
-        query_vector=get_embedding(QUERY),
-        top_k=2,
-    )
+    results = store.search(query=QUERY, top_k=2)
 
     _print_results(results)
 
@@ -108,7 +104,7 @@ def test_store_save_and_load_round_trip():
         reloaded_store.load(folder=tmp_dir)
 
         results = reloaded_store.search(
-            query_vector=get_embedding(QUERY),
+            query=QUERY,
             top_k=2,
         )
 
@@ -130,7 +126,7 @@ def test_pdf_ingestion_save_and_load_round_trip():
         reloaded_store.load(folder=tmp_dir)
 
         results = reloaded_store.search(
-            query_vector=get_embedding(QUERY),
+            query=QUERY,
             top_k=2,
         )
 
